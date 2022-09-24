@@ -8,8 +8,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-
-
 def stock_func(ticker):
 
     data = yf.download(ticker, start="2022-08-30", end="2022-09-14")
@@ -21,24 +19,22 @@ def stock_func(ticker):
 
     print(tickerPrices)
 
+
+    #Create the NumPy Array
     ticker_array = np.array(tickerPrices)
 
+    #Create the MatLib graph
     plt.plot(ticker_array)
 
+    #Save the graph to charts/
     plt.savefig('charts/' + ticker + '.png')
 
     plt.show()
 
-
-
 ticker_1 = "AAPL"
-
 ticker_2 = "MSFT"
-
 ticker_3 = "TSLA"
-
 ticker_4 = "AFL"
-
 ticker_5 = "NVDA"
 
 
