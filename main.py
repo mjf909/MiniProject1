@@ -21,9 +21,9 @@ def stock_func(ticker):
 
     print(msftPrices)
 
-    msftarray = np.array(msftPrices)
+    ticker_array = np.array(msftPrices)
 
-    plt.plot(msftarray)
+    plt.plot(ticker_array)
 
     plt.savefig('charts/' + ticker + '.png')
 
