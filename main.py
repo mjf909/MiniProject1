@@ -14,14 +14,14 @@ def stock_func(ticker):
 
     data = yf.download(ticker, start="2022-08-30", end="2022-09-14")
 
-    msftPrices = []
+    tickerPrices = []
 
     for price in data['Adj Close']:
-        msftPrices.append(price)
+        tickerPrices.append(price)
 
-    print(msftPrices)
+    print(tickerPrices)
 
-    ticker_array = np.array(msftPrices)
+    ticker_array = np.array(tickerPrices)
 
     plt.plot(ticker_array)
 
