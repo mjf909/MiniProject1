@@ -7,25 +7,48 @@ import yfinance as yf
 import numpy as np
 import matplotlib.pyplot as plt
 
-data = yf.download("MSFT", start="2022-08-30", end="2022-09-14")
-
-msftPrices = []
 
 
-for price in data['Adj Close']:
-    msftPrices.append(price)
+
+def stock_func(ticker):
+
+    data = yf.download(ticker, start="2022-08-30", end="2022-09-14")
+
+    msftPrices = []
+
+    for price in data['Adj Close']:
+        msftPrices.append(price)
+
+    print(msftPrices)
+
+    msftarray = np.array(msftPrices)
+
+    plt.plot(msftarray)
+
+    plt.savefig('charts/' + ticker + '.png')
+
+    plt.show()
 
 
-print(msftPrices)
+
+ticker_1 = "AAPL"
+
+ticker_2 = "MSFT"
+
+ticker_3 = "TSLA"
+
+ticker_4 = "AFL"
+
+ticker_5 = "NVDA"
 
 
-msftarray = np.array(msftPrices)
 
-plt.plot(msftarray)
+stock_func(ticker_1)
 
+stock_func(ticker_2)
 
-plt.savefig('msft.png')
+stock_func(ticker_3)
 
-plt.show()
+stock_func(ticker_4)
 
-
+stock_func(ticker_5)
